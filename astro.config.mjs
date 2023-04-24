@@ -18,6 +18,4 @@ export default defineConfig({
   markdown: {
     drafts: true,
   },
-  output: 'server',
-  adapter: vercel(),
 });

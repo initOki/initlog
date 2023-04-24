@@ -5,7 +5,7 @@ import Menu from './Menu/index.astro';
 
 const response = await fetch('https://api.github.com/users/initoki', {
   headers: {
-    Authorization: `token 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`,
+    Authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
   },
 });
 const data = await response.json();

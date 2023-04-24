@@ -6,12 +6,13 @@ import { Repository } from './type';
 
 const response = await axios.get('https://api.github.com/users/initoki/repos?sort=updated', {
   headers: {
-    Authorization: `token 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`,
+    Authorization: `token ${import.meta.env.GITHUB_TOKEN}`,
   },
 });
 
 const data = response.data;
 const repositories: Repository[] = [];
+// console.log(data);
 data.map((x) => {
   const getData = {
     repositoryName: x.name,
