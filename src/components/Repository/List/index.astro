@@ -1,0 +1,19 @@
+---
+import Item from './Item';
+import { Repository } from '../type';
+
+interface Props {
+  repositories: Repository[];
+}
+
+const { repositories } = Astro.props;
+---
+
+<ul>
+  {
+    repositories.map((x) => {
+      const { repositoryName, repositoryUrl, languagesUrl } = x;
+      return <Item client:visible repositoryName={repositoryName} languagesUrl={languagesUrl} />;
+    })
+  }
+</ul>

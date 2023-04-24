@@ -1,0 +1,54 @@
+---
+import axios from 'axios';
+import RepositoryList from './List/index.astro';
+import RepositoryLanguage from './Language/index.astro';
+import { Repository } from './type';
+
+const response = await axios.get('https://api.github.com/users/initoki/repos?sort=updated', {
+  headers: {
+    Authorization: `token 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`,
+  },
+});
+
+const data = response.data;
+const repositories: Repository[] = [];
+data.map((x) => {
+  const getData = {
+    repositoryName: x.name,
+    languagesUrl: x.languages_url,
+    repositoryUrl: x.html_url,
+  };
+
+  repositories.push(getData);
+});
+---
+
+<div class="repository-list-box">
+  <h1>Repository</h1>
+  <div class="list-box">
+    <RepositoryList repositories={repositories} />
+    <RepositoryLanguage />
+  </div>
+</div>
+
+<style>
+  div.repository-list-box {
+    height: 200px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(1, 1, 1, 0.4);
+  }
+
+  h1 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 20px;
+  }
+
+  div.list-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 150px;
+    overflow-y: scroll;
+  }
+</style>
