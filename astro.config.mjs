@@ -17,5 +17,5 @@ export default defineConfig({
     drafts: true,
   },
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel()
 });
