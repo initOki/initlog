@@ -7,7 +7,9 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), mdx(), sitemap()],
+  integrations: [react(), mdx(), sitemap({
+    canonicalURL: 'https://initlog.vercel.app'
+  })],
   rendererOptions: {
     styleUrl: false
   },
@@ -17,5 +19,5 @@ export default defineConfig({
     drafts: true,
   },
   output: 'server',
-  adapter: vercel()
+  adapter: vercel(),
 });
