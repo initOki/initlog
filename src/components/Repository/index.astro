@@ -11,7 +11,7 @@ const response = await fetch('https://api.github.com/users/initoki/repos?sort=up
 
 const data = await response.json();
 const repositories: Repository[] = [];
-data.map((x) => {
+data?.map((x) => {
   const getData = {
     repositoryName: x.name,
     languagesUrl: x.languages_url,
