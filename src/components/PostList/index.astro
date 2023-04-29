@@ -6,31 +6,34 @@ const notes = await getCollection('note');
 
 <div>
   {
-    notes.map((note, index) => {
-      return (
-        <div key={index} class="list-box">
-          <h1>
-            <a href={`/note/${note.slug}`}>{note.data.title}</a>
-          </h1>
-          <p>{note.data.description}</p>
-        </div>
-      );
-    })
+    notes
+      .slice(0)
+      .reverse()
+      .map((note, index) => {
+        return (
+          <div key={index} class="list-box">
+            <h1>
+              <a href={`/note/${note.slug}`}>{note.data.title}</a>
+            </h1>
+            <p>{note.data.description}</p>
+          </div>
+        );
+      })
   }
 </div>
 
 <style>
   h1 {
     font-size: 24px;
-    color: #ffffff;
-    border-bottom: 1px solid #ffffff;
+    color: #4e4e4e;
+    border-bottom: 1px solid #4e4e4e;
     padding-bottom: 10px;
   }
 
   p {
-    padding-top: 20px;
+    padding-top: 10px;
     font-size: 20px;
-    color: #ffffff;
+    color: #4e4e4e;
   }
 
   div.list-box {
@@ -38,7 +41,7 @@ const notes = await getCollection('note');
   }
 
   a {
-    color: #ffffff;
+    color: #4e4e4e;
     text-decoration: none;
   }
 </style>
