@@ -23,5 +23,6 @@ pnpm-debug.log*
 
 # env
 .env.development
-.env.production
-.env
+
+# IDEA
+.idea
