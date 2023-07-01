@@ -7,7 +7,7 @@
     <a href="/">Hooooooooome</a>
   </li>
   -->
-  <li>
+  <li class="hihi">
     <a href="/note">이런 저런 글</a>
   </li>
 </ul>
@@ -37,3 +37,12 @@
     color: #4e4e4e;
   }
 </style>
+
+<script>
+  import WebHook from './WebHook';
+  const { hook } = WebHook();
+  const getLi = document.getElementsByClassName('hihi')[0];
+  getLi.addEventListener('click', () => {
+    hook();
+  });
+</script>
