@@ -1,9 +1,12 @@
 ---
+import {ViewTransitions} from 'astro:transitions';
 import './post-layout.scss';
 
 const { frontmatter } = Astro.props;
 ---
-
+<head>
+  <ViewTransitions/>
+</head>
 <div class="md">
   <div class="title-box">
     <h1 class="title">{frontmatter.title}</h1>
