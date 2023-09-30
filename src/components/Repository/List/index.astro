@@ -1,5 +1,4 @@
 ---
-import Item from './Item';
 import { Repository } from '../type';
 
 interface Props {
@@ -13,7 +12,20 @@ const { repositories } = Astro.props;
   {
     repositories.map((x) => {
       const { repositoryName, repositoryUrl, languagesUrl } = x;
-      return <Item client:visible repositoryName={repositoryName} languagesUrl={languagesUrl} />;
+      return (
+        <li class="item">
+          <span>{repositoryName}</span>
+        </li>
+      );
     })
   }
 </ul>
+
+<style>
+  .item {
+    padding: 10px 0 10px 0;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+</style>
