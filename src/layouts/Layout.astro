@@ -1,8 +1,6 @@
 ---
 import Navigation from '~/components/Navigation/index.astro';
 import { ViewTransitions } from 'astro:transitions';
-import HyperDX from '@hyperdx/browser';
-import { user } from '../store/user/state';
 
 export interface Props {
   title: string;
@@ -27,16 +25,19 @@ const { title } = Astro.props;
     <main>
       <slot />
     </main>
+
     <style is:global>
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
+
       :root {
         --accent: 124, 58, 237;
         --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
       }
+
       html {
         height: 100vh;
         font-family: system-ui, sans-serif;
@@ -46,6 +47,7 @@ const { title } = Astro.props;
         background-position: center;
         background-repeat: no-repeat;
       }
+
       code {
         font-family:
           Menlo,
@@ -57,12 +59,14 @@ const { title } = Astro.props;
           Courier New,
           monospace;
       }
+
       ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         /*overflow: hidden;*/
       }
+
       h1 {
         margin: 0;
         padding: 0;
