@@ -1,12 +1,33 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Repository from '../components/Repository/index.astro';
-import Card from '../components/Card.astro';
+
+const { message = 'Hello World!' } = Astro.props;
 ---
 
 <Layout>
   <Repository />
+  <astro-component data-message={message}>
+    <button>click me!</button>
+  </astro-component>
 </Layout>
+
+<script>
+  class AstroComponent extends HTMLElement {
+    constructor() {
+      super();
+
+      const changeMessage = this.dataset.message;
+      const button = this.querySelector('button');
+      button.addEventListener('click', () => {
+        alert(changeMessage);
+        button.innerText = changeMessage;
+      });
+    }
+  }
+
+  customElements.define('astro-component', AstroComponent);
+</script>
 
 <style>
   main {

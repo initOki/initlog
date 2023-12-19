@@ -17,7 +17,4 @@ export default defineConfig({
   markdown: {
     drafts: true,
   },
-  experimental: {
-    devOverlay: true,
-  }
 });

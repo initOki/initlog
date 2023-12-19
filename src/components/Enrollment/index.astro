@@ -1,0 +1,79 @@
+---
+import axios from 'axios';
+const response = await axios.post('https://staging.onuii.com/Lecture_StoreItems');
+const lectureItems = response.data.ONUEI_RES.DATA.RESPONSE.LECTURE_ITEMS;
+const highSchoolLectureItems = lectureItems.filter((item) => item.group_No === 65);
+const middleSchoolLectureItems = lectureItems.filter((item) => item.group_No === 64);
+---
+
+<astro-button id="select-box">
+  <div class="grid-3">
+    <button data-button-tablet="RENT">대여</button>
+    <button data-button-tablet="OWN">보유</button>
+    <button data-button-tablet="BUY">구매</button>
+  </div>
+
+  <div class="grid-3">
+    <button data-button-device="SPACE_GRAY">스페이스그레이</button>
+    <button data-button-device="SILVER">실버</button>
+    <button data-button-device="GOLD">골드</button>
+  </div>
+
+  <div class="grid-3">
+    <button data-button-subject="KOREAN">국어</button>
+    <button data-button-subject="ENGLISH">영어</button>
+    <button data-button-subject="MATH">수학</button>
+  </div>
+
+  <div class="grid-2">
+    <button data-button-grade="HIGH">고등</button>
+    <button data-button-grade="MIDDLE">중등</button>
+  </div>
+
+  <div class="grid-3">
+    <button data-button-month="3">3개월</button>
+    <button data-button-month="6">6개월</button>
+    <button data-button-month="12">12개월</button>
+  </div>
+
+  <div class="grid-3">
+    {
+      highSchoolLectureItems.map((item) => {
+        return <button data-button-lecture-item={`${item.TTEOK_HAM_No}`}>{item.TTEOK_HAM_SubTitle1}</button>;
+      })
+    }
+  </div>
+</astro-button>
+
+<style>
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 50px;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 50px;
+  }
+
+  button {
+    width: 300px;
+    height: 50px;
+    border: none;
+  }
+
+  button.active {
+    background-color: #57bfcf;
+  }
+</style>
+
+<script src="./script.ts"></script>
+<script>
+  document.querySelector('#select-box').addEventListener('typeChange', (event) => {
+    console.log(event);
+  });
+</script>
