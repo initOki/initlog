@@ -1,6 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import './style.scss';
+
+const allowHostname = ['localhost'];
+const allowCheck = allowHostname.some((item) => item === Astro.url.hostname);
+if (!allowCheck) {
+  return Astro.redirect('/');
+}
 ---
 
 <Layout>
@@ -49,7 +55,7 @@ import './style.scss';
     <div>
       <div class="default-button-box">
         <p>내 수강권 확인하기</p>
-        <p>〉</p>
+        <p><a href="/mypage/ticket">〉</a></p>
       </div>
       <div class="default-button-box">
         <p>결제 내역 확인하기</p>
@@ -97,12 +103,6 @@ import './style.scss';
 <style is:inline>
   * {
     color: #ffffff;
+    text-decoration: none;
   }
 </style>
-
-<script>
-  const hostName = location.host;
-  if (hostName !== 'localhost:3200') {
-    location.href = '';
-  }
-</script>
