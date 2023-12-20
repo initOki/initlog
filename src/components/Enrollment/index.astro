@@ -36,14 +36,14 @@ const middleSchoolLectureItems = lectureItems.filter((item) => item.group_No ===
     <button data-button-month="12">12개월</button>
   </div>
 
-  <div class="grid-3" data-button-lecture-high-school>
+  <div class="grid-3 lecture-item-list" data-button-lecture-high-school>
     {
       highSchoolLectureItems.map((item) => {
         return <button data-button-lecture-item={`${item.TTEOK_HAM_No}`}>{item.TTEOK_HAM_SubTitle1}</button>;
       })
     }
   </div>
-  <div class="grid-3" data-button-lecture-middle-school>
+  <div class="grid-3 lecture-item-list" data-button-lecture-middle-school>
     {
       middleSchoolLectureItems.map((item) => {
         return <button data-button-lecture-item={`${item.TTEOK_HAM_No}`}>{item.TTEOK_HAM_SubTitle1}</button>;
@@ -77,8 +77,12 @@ const middleSchoolLectureItems = lectureItems.filter((item) => item.group_No ===
     background-color: #57bfcf;
   }
 
-  div.disabled {
+  .lecture-item-list {
     display: none;
+  }
+
+  .lecture-item-list.show {
+    display: grid;
   }
 </style>
 

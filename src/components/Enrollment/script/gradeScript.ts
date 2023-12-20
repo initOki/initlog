@@ -50,11 +50,11 @@ export default class GradeManager {
         this.common.typeChangeEvent();
 
         if (value === 'MIDDLE') {
-          this.lectureItemForHighSchool?.classList.add('disabled');
-          this.lectureItemForMiddleSchool?.classList.remove('disabled');
+          this.lectureItemForHighSchool?.classList.remove('show');
+          this.lectureItemForMiddleSchool?.classList.add('show');
         } else {
-          this.lectureItemForHighSchool?.classList.remove('disabled');
-          this.lectureItemForMiddleSchool?.classList.add('disabled');
+          this.lectureItemForHighSchool?.classList.add('show');
+          this.lectureItemForMiddleSchool?.classList.remove('show');
         }
       });
     });

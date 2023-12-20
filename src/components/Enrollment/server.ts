@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 class GetLectureItems {
-  lectureItems: Array<any>;
-  highSchoolLectureItems: Array<any>;
-  middleSchoolLectureItems: Array<any>;
+  lectureItems: any[];
+  highSchoolLectureItems: any[];
+  middleSchoolLectureItems: any[];
 
   constructor() {
     this.lectureItems = [];

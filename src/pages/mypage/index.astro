@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import './style.scss';
+---
+
+<Layout>
+  <div class="my-page-contents">
+    <div>
+      <h3 class="section-title">기본정보</h3>
+      <div class="user-info-wrapper">
+        <div class="user-info-box">
+          <div class="user-profile-image"></div>
+          <div>
+            <div class="grid-box user-info-title">
+              <p>이든</p>
+              <span>|</span>
+              <span>학생</span>
+            </div>
+            <div class="grid-box user-info-phone">
+              <p>연락처</p>
+              <p>010-0000-0000</p>
+              <button>수정</button>
+            </div>
+            <div class="grid-box user-info-email">
+              <p>계정 정보</p>
+              <p>eden10@seoltab.test</p>
+            </div>
+            <div class="grid-box user-info-code">
+              <p>내 추천 코드</p>
+              <p>asdf231</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <p>학교 정보</p>
+            <button>수정</button>
+          </div>
+          <p>설탭고등학교</p>
+          <p>2학년</p>
+        </div>
+      </div>
+      <div class="user-info-parent-wrapper">
+        <p>연결 계정 정보</p>
+        <p>김엄마 010-0000-0000</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="default-button-box">
+        <p>내 수강권 확인하기</p>
+        <p>〉</p>
+      </div>
+      <div class="default-button-box">
+        <p>결제 내역 확인하기</p>
+        <p>〉</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <div class="default-button-box">
+        <p>비밀번호 변경</p>
+        <p>〉</p>
+      </div>
+      <div class="default-button-box">
+        <p>마케팅 정보 수신</p>
+        <p>동의 일자 : 2023년 12월 20일</p>
+      </div>
+      <div class="default-button-box">
+        <p>공지사항</p>
+        <p>〉</p>
+      </div>
+      <div class="default-button-box">
+        <p>고객센터</p>
+        <p>〉</p>
+      </div>
+      <div class="default-button-box">
+        <p>사업자 정보</p>
+        <p>〉</p>
+      </div>
+      <div class="default-button-box">
+        <p>서비스 이용약관</p>
+        <p>〉</p>
+      </div>
+      <div class="default-button-box">
+        <p>개인정보 처리방침</p>
+        <p>〉</p>
+      </div>
+      <div class="default-button-box">
+        <p>회원탈퇴</p>
+        <p>〉</p>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style is:inline>
+  * {
+    color: #ffffff;
+  }
+</style>
+
+<script>
+  const hostName = location.host;
+  if (hostName !== 'localhost:3200') {
+    location.href = '';
+  }
+</script>

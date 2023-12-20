@@ -1,0 +1,44 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import './style.scss';
+---
+
+<Layout>
+  <div class="my-page-contents">
+    <div class="product-wrapper">
+      <h3>이용중인 상품</h3>
+      <div class="product-box">
+        <div>
+          <p class="name">이든</p>
+          <p class="email">eden10@seoltab.test</p>
+          <p>|</p>
+          <button class="button">계약서 확인하기</button>
+        </div>
+        <div>
+          <p class="name">기기 정보</p>
+          <p class="item">아이패드 대여 ( 중고 9세대 실버 )</p>
+        </div>
+        <div>
+          <p class="name">수강 정보</p>
+          <p class="item">9.125 개월</p>
+        </div>
+        <div>
+          <p class="name">혜택 정보</p>
+          <p class="item">15개월 완강 시 기기 증정</p>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <h3>이용중인 수강권</h3>
+        <span>현재 수강 중인 과목과 회차를 확인하세요.</span>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style is:inline>
+  * {
+    color: #ffffff;
+  }
+</style>

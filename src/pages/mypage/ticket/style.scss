@@ -1,0 +1,35 @@
+.product-wrapper {
+  .product-box {
+    width: 100%;
+    padding: 24px 60px;
+    border-radius: 12px;
+    border: 1px solid #808080;
+
+    > div {
+      display: grid;
+      grid-template-columns: 100px 1fr 20px 150px;
+      max-width: 480px;
+
+      button {
+        padding: 3px 8px;
+        background-color: unset;
+        border: 1px solid #808080;
+        border-radius: 4px;
+      }
+
+      .name {
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      .item {
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      &:nth-child(1) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
