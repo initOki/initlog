@@ -1,19 +1,13 @@
 ---
 interface Props {
-  type: string;
-  media: string;
+  type?: string;
+  media?: string;
   name: string;
   preview?: boolean;
   className?: string;
 }
 
-const {
-  type, //
-  media = 'pc',
-  preview = false,
-  className,
-  name,
-} = Astro.props;
+const { className, name } = Astro.props;
 
 const createClassName = () => {
   if (className) {

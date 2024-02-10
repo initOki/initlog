@@ -1,13 +1,11 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import LeftSidebar from '../components/LeftSidebar.astro';
-import RightSidebar from '../components/RightSidebar.astro';
 
 const currentPage = new URL(Astro.request.url).pathname;
-const { content } = Astro.props;
+// const { content } = Astro.props;
 ---
 
 <!doctype html>
