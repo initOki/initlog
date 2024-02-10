@@ -1,0 +1,22 @@
+---
+export const prerender = true;
+
+import { type CollectionEntry, getCollection } from 'astro:content';
+import OnboardingLayout from '../../layouts/OnboardingLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('onboarding');
+  return posts.map((posts) => ({
+    params: { slug: posts.slug },
+    props: posts,
+  }));
+}
+type Props = CollectionEntry<'onboarding'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<OnboardingLayout {...post.data}>
+  <Content />
+</OnboardingLayout>

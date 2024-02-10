@@ -1,0 +1,161 @@
+---
+import DesignSystemLayout from '../../../../layouts/DesignSystemLayout.astro';
+import { Plum } from '~/utils/design/color/plum';
+import { Rose } from '~/utils/design/color/rose';
+import { Orange } from '~/utils/design/color/orange';
+import { Brown } from '~/utils/design/color/brown';
+import { Cyan } from '~/utils/design/color/cyan';
+import { Indigo } from '~/utils/design/color/indigo';
+
+const title = 'Palette';
+---
+
+<DesignSystemLayout>
+  <div class="border-b-2 mb-[30px]">
+    <h1>{title}</h1>
+  </div>
+
+  <h3 class="mt-[30px] font-[600]">Plum</h3>
+  <div class="flex overflow-scroll border-b-2">
+    {
+      Plum.map((item) => {
+        return (
+          <div class="pt-[15px] pb-[15px]">
+            <span class="block text-[16px] mb-[20px]">{item.name}</span>
+            <span class={`${item.name} block w-full h-[70px] text-[16px] mb-[20px] min-w-[200px]`} />
+
+            <div class="flex">
+              {item.styles.map((style) => {
+                return (
+                  <span class="mr-[20px] text-[14px] text-slate-400">
+                    {style.name} : {style.value}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <h3 class="mt-[30px] font-[600]">Rose</h3>
+  <div class="flex overflow-scroll border-b-2">
+    {
+      Rose.map((item) => {
+        return (
+          <div class="pt-[15px] pb-[15px]">
+            <span class="block text-[16px] mb-[20px]">{item.name}</span>
+            <span class={`${item.name} block w-full h-[70px] text-[16px] mb-[20px] min-w-[200px]`} />
+
+            <div class="flex">
+              {item.styles.map((style) => {
+                return (
+                  <span class="mr-[20px] text-[14px] text-slate-400">
+                    {style.name} : {style.value}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <h3 class="mt-[30px] font-[600]">Orange</h3>
+  <div class="flex overflow-scroll border-b-2">
+    {
+      Orange.map((item) => {
+        return (
+          <div class="pt-[15px] pb-[15px]">
+            <span class="block text-[16px] mb-[20px]">{item.name}</span>
+            <span class={`${item.name} block w-full h-[70px] text-[16px] mb-[20px] min-w-[200px]`} />
+
+            <div class="flex">
+              {item.styles.map((style) => {
+                return (
+                  <span class="mr-[20px] text-[14px] text-slate-400">
+                    {style.name} : {style.value}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <h3 class="mt-[30px] font-[600]">Brown</h3>
+  <div class="flex overflow-scroll border-b-2">
+    {
+      Brown.map((item) => {
+        return (
+          <div class="pt-[15px] pb-[15px]">
+            <span class="block text-[16px] mb-[20px]">{item.name}</span>
+            <span class={`${item.name} block w-full h-[70px] text-[16px] mb-[20px] min-w-[200px]`} />
+
+            <div class="flex">
+              {item.styles.map((style) => {
+                return (
+                  <span class="mr-[20px] text-[14px] text-slate-400">
+                    {style.name} : {style.value}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <h3 class="mt-[30px] font-[600]">Cyan</h3>
+  <div class="flex overflow-scroll border-b-2">
+    {
+      Cyan.map((item) => {
+        return (
+          <div class="pt-[15px] pb-[15px]">
+            <span class="block text-[16px] mb-[20px]">{item.name}</span>
+            <span class={`${item.name} block w-full h-[70px] text-[16px] mb-[20px] min-w-[200px]`} />
+
+            <div class="flex">
+              {item.styles.map((style) => {
+                return (
+                  <span class="mr-[20px] text-[14px] text-slate-400">
+                    {style.name} : {style.value}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <h3 class="mt-[30px] font-[600]">Indigo</h3>
+  <div class="flex overflow-scroll border-b-2">
+    {
+      Indigo.map((item) => {
+        return (
+          <div class="pt-[15px] pb-[15px]">
+            <span class="block text-[16px] mb-[20px]">{item.name}</span>
+            <span class={`${item.name} block w-full h-[70px] text-[16px] mb-[20px] min-w-[200px]`} />
+
+            <div class="flex">
+              {item.styles.map((style) => {
+                return (
+                  <span class="mr-[20px] text-[14px] text-slate-400">
+                    {style.name} : {style.value}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</DesignSystemLayout>

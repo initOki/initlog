@@ -1,0 +1,78 @@
+---
+import { SIDEBAR, DESIGN_SIDEBAR, BLOG_SIDEBAR } from '../utils/config';
+const { currentPage } = Astro.props;
+
+const currentPageMatch = currentPage.split('/')[1];
+
+const sidebar = () => {
+  switch (currentPageMatch) {
+    case 'design':
+      return DESIGN_SIDEBAR;
+    case 'blog':
+      return BLOG_SIDEBAR;
+    default:
+      return SIDEBAR;
+  }
+};
+
+const isCurrentPage = (item: any) => {
+  if (item.link) {
+    return item.link.includes(currentPage);
+  }
+  return false;
+};
+
+const getLinkClasses = (link: any) => {
+  const baseClasses =
+    'block py-2 px-6  my-1 transition-colors border-l-[3px] hover:border-slate-400 heading-slate-500 hover:heading-slate-900';
+
+  if (isCurrentPage(link)) {
+    return baseClasses + ' border-slate-500 heading-slate-900';
+  } else {
+    return baseClasses;
+  }
+};
+---
+
+<aside title="Site Navigation">
+  <!-- <Debug content={navigation} /> -->
+  <nav aria-labelledby="grid-left" class="w-64 p-4 border-r">
+    <ul>
+      {
+        sidebar().map((item: any) =>
+          item?.header ? (
+            <h2 class="nav-header mt-4 font-semibold text-slate-700">{item.text}</h2>
+          ) : (
+            <li class={`${getLinkClasses(item)} nav-item`}>
+              <a href={item?.link} data-astro-prefetch>
+                {item.text}
+              </a>
+            </li>
+          ),
+        )
+      }
+    </ul>
+  </nav>
+</aside>
+
+<style is:inline>
+  .nav-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .nav-item > a {
+    font-size: 1rem;
+    color: #6d6d6d;
+  }
+</style>
+
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    var target = document.querySelector('[aria-current="page"]');
+    if (target && target.offsetTop > window.innerHeight - 100) {
+      document.querySelector('.nav-groups').scrollTop = target.offsetTop;
+    }
+  });
+</script>

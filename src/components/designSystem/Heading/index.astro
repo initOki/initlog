@@ -1,0 +1,29 @@
+---
+interface Props {
+  type: string;
+  media: string;
+  name: string;
+  preview?: boolean;
+  className?: string;
+}
+
+const {
+  type, //
+  media = 'pc',
+  preview = false,
+  className,
+  name,
+} = Astro.props;
+
+const createClassName = () => {
+  if (className) {
+    return `${className} --st-${name}`;
+  } else {
+    return `--st-${name}`;
+  }
+};
+---
+
+<span class={createClassName()}>
+  <slot />
+</span>

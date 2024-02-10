@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import LeftSidebar from '../../components/LeftSidebar.astro';
+import './style.scss';
+import './markdown.scss';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const currentPage = new URL(Astro.request.url).pathname;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body>
+    <Header />
+    <!--<LeftSidebar />-->
+    <div class="contents">
+      <LeftSidebar currentPage={currentPage} />
+      <main>
+        <article>
+          <div class="markdown-body">
+            <slot />
+          </div>
+        </article>
+      </main>
+    </div>
+    <!--<Footer />-->
+    <script>
+      const getAsideTag = document.querySelector('aside');
+      const getArticleTag = document.querySelector('article');
+      const getContentsBox = document.querySelector('main');
+      const windowHeight = window.innerHeight;
+
+      getArticleTag.style.height = `${windowHeight - 100}px`;
+      getAsideTag.style.height = `${windowHeight - 100}px`;
+      getContentsBox.style.height = `${windowHeight - 100}px`;
+    </script>
+  </body>
+</html>

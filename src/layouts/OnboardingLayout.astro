@@ -1,0 +1,93 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import LeftSidebar from '../components/LeftSidebar.astro';
+import RightSidebar from '../components/RightSidebar.astro';
+
+const currentPage = new URL(Astro.request.url).pathname;
+const { content } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <div>
+      <Header title={SITE_TITLE} />
+      <div class="container">
+        <LeftSidebar currentPage={currentPage} />
+        <div class="md-box">
+          <slot />
+        </div>
+        <!--<RightSidebar content={content} />-->
+      </div>
+    </div>
+    <style is:inline>
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 100px auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-weight: 600;
+      }
+
+      h1 {
+        margin-bottom: 2.5rem;
+      }
+
+      h3 {
+        margin-top: 2rem;
+        margin-bottom: 1.2rem;
+      }
+
+      ul {
+        margin: 0.5rem 0 2rem 0;
+      }
+
+      li {
+        margin: 0.5rem 0;
+      }
+
+      p,
+      li {
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+
+      th {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        font-weight: 700;
+        border-top: 2px solid #ececec;
+        border-bottom: 2px solid #ececec;
+      }
+
+      td {
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        border-bottom: 1px solid #ececec;
+      }
+
+      .md-box {
+        overflow: scroll;
+      }
+
+      .md-box a {
+        color: #626262;
+        text-decoration: underline;
+      }
+    </style>
+  </body>
+</html>

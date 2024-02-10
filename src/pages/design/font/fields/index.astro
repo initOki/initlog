@@ -1,0 +1,34 @@
+---
+import DesignSystemLayout from '../../../../layouts/DesignSystemLayout.astro';
+import { Fields } from '../../../../utils/design/font/field';
+
+const title = 'Fields';
+---
+
+<DesignSystemLayout>
+  <div class="border-b-2 mb-[30px]">
+    <h1>{title}</h1>
+  </div>
+  <div>
+    {
+      Fields.map((item) => {
+        return (
+          <div class="border-b-2 pt-[15px] pb-[15px]">
+            <span class="block text-[16px] mb-[20px]">{item.name}</span>
+            <span class={`${item.name} block`}>안녕하세요! 설탭입니다.</span>
+
+            <div class="flex">
+              {item.styles.map((style) => {
+                return (
+                  <span class="mr-[20px] text-[14px] text-slate-400">
+                    {style.name} : {style.value}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</DesignSystemLayout>
