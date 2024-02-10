@@ -10,7 +10,7 @@ import spotlightjs from "@spotlightjs/astro";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), tailwind(), sentry(), spotlightjs()],
+  integrations: [mdx(), sitemap(), tailwind(), spotlightjs()],
   output: "server",
   adapter: vercel(),
   prefetch: true,
