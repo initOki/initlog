@@ -10,7 +10,7 @@ import './markdown.scss';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate } = Astro.props;
 const currentPage = new URL(Astro.request.url).pathname;
 ---
 
@@ -21,7 +21,6 @@ const currentPage = new URL(Astro.request.url).pathname;
 
   <body>
     <Header />
-    <!--<LeftSidebar />-->
     <div class="contents">
       <LeftSidebar currentPage={currentPage} />
       <main>
@@ -32,16 +31,18 @@ const currentPage = new URL(Astro.request.url).pathname;
         </article>
       </main>
     </div>
-    <!--<Footer />-->
+
     <script>
       const getAsideTag = document.querySelector('aside');
       const getArticleTag = document.querySelector('article');
       const getContentsBox = document.querySelector('main');
       const windowHeight = window.innerHeight;
 
-      getArticleTag.style.height = `${windowHeight - 100}px`;
-      getAsideTag.style.height = `${windowHeight - 100}px`;
-      getContentsBox.style.height = `${windowHeight - 100}px`;
+      if (getArticleTag && getAsideTag && getContentsBox) {
+        getArticleTag.style.height = `${windowHeight - 100}px`;
+        getAsideTag.style.height = `${windowHeight - 100}px`;
+        getContentsBox.style.height = `${windowHeight - 100}px`;
+      }
     </script>
   </body>
 </html>
